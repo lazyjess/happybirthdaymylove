@@ -1,0 +1,144 @@
+<!DOCTYPE html><html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LoveOS v1.0</title>
+  <style>
+    body {
+      background-color: #fff0f6;
+      color: #ff69b4;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .terminal {
+      background: #ffe0ec;
+      border: 2px solid #ff69b4;
+      border-radius: 10px;
+      padding: 20px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+      text-align: center;
+    }
+    .button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 1rem;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+    .message, .tip-section {
+      margin-top: 20px;
+      white-space: pre-wrap;
+    }
+    .hearts {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+    .loader {
+      border: 5px solid #ffe0ec;
+      border-top: 5px solid #ff69b4;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal">
+    <h1>Alles gute zum Geburtstag mein Süßer 💖</h1><div id="initialContent">
+  <button class="button" onclick="startLoading()">Geschenk freischalten</button>
+</div>
+
+<div id="loaderScreen" class="hidden">
+  <p>Lade deine Überraschung ...</p>
+  <div class="loader"></div>
+</div>
+
+
+<div id="step1" class="hidden tip-section">
+  <p>Tipp: öffne nun die geschenke nach der kommenden anleitung</p>
+  <button class="button" onclick="switchStep(1, 2)">Paket Nr. 1</button>
+</div>
+
+
+<div id="step2" class="hidden tip-section">
+  <p><strong>Paket Nr. 1</strong></p>
+  <p>Tipp: Etwas, das du gerne trinkst und deiner "Nationalität" (Ossi) entspricht 😉</p>
+  <button class="button" onclick="switchStep(2, 3)">Weiter zu Paket Nr. 2</button>
+</div>
+
+<div id="step3" class="hidden tip-section">
+  <p><strong>Paket Nr. 2</strong></p>
+  <p>Tipp: Es ist braun und schmeckt süß 🍫</p>
+  <button class="button" onclick="switchStep(3, 4)">Weiter zu Paket Nr. 3</button>
+</div>
+
+<div id="step4" class="hidden tip-section">
+  <p><strong>Paket Nr. 3</strong></p>
+  <p>Tipp: Damit du länger zocken kannst 🎮</p>
+  <button class="button" onclick="switchStep(4, 5)">Weiter zu Paket Nr. 4</button>
+</div>
+
+<div id="step5" class="hidden tip-section">
+  <p><strong>Paket Nr. 4</strong></p>
+  <p>Tipp: Damit du dir etwas gönnen kannst 💸</p>
+  <button class="button" onclick="switchStep(5, 6)">Weiter zu Paket Nr. 5</button>
+</div>
+
+<div id="step6" class="hidden tip-section">
+  <p><strong>Paket Nr. 5</strong></p>
+  <p>Tipp: Erinnerungen 📸</p>
+  <button class="button" onclick="switchStep(6, 7)">Zeige letzte Nachricht</button>
+</div>
+
+<div id="step7" class="hidden message">
+  <p><strong>Persönliche Botschaft:</strong></p>
+  <p>
+    Ich liebe dich über alles und zwar 2 mal mehr und das für immer,
+    ich bin froh dich kennengelernt zu haben und dich als mein Partner nennen zu dürfen.
+    Mit dir macht alles Spaß und ich freue mich auf eine wunderschöne Zukunft mit dir
+    als mein Partner und hoffentlich bald als mein Ehemann. ❤
+  </p>
+  <div class="hearts">
+    ❤ ❤ ❤ ❤ ❤ ❤ ❤
+  </div>
+</div>
+
+  </div>  <script>
+    function startLoading() {
+      document.getElementById('initialContent').classList.add('hidden');
+      document.getElementById('loaderScreen').classList.remove('hidden');
+      setTimeout(() => {
+        document.getElementById('loaderScreen').classList.add('hidden');
+        document.getElementById('step1').classList.remove('hidden');
+      }, 2500);
+    }
+
+    function switchStep(current, next) {
+      document.getElementById('step' + current).classList.add('hidden');
+      document.getElementById('step' + next).classList.remove('hidden');
+    }
+  </script></body>
+</html>
